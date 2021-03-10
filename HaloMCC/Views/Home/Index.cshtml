@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Halo MCC Achievement Tracker";
+}
+
+<img src="~/Content/Images/halo-the-master-chief-collection-banner.png" class="img-responsive img-rounded" />
+<br/>
+
+<span style="color:red;" id="error">@Html.Raw(ViewBag.HtmlStr + "<br/>")</span>
+<span style="color:cornflowerblue" id="message">Getting your results....</span>
+
+<form role="form" method="get" action="@Url.Action("Achievements","Home")" id="gamertagLogin">
+    <div class="form-group">
+        <label for="gamertag">Enter your gamertag:</label>
+        <input type="text" class="form-control" id="gamertag" name="gamertag" placeholder="Gamertag" required />
+    </div>
+    <button type="submit" class="btn btn-default" id="submit">Submit</button>
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#message").hide();
+    })
+
+    $("#submit").click(function () {
+        if ($("#gamertag").val().trim() != '') {
+            $("#message").show();
+        }
+    })
+</script>

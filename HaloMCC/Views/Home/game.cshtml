@@ -1,0 +1,1085 @@
+﻿@model List<HaloMCC.Controllers.HomeController.XboxAchievements>
+@{
+    List<HaloMCC.Controllers.HomeController.XboxAchievements> halo1 = new List<HaloMCC.Controllers.HomeController.XboxAchievements>();
+    List<HaloMCC.Controllers.HomeController.XboxAchievements> halo2 = new List<HaloMCC.Controllers.HomeController.XboxAchievements>();
+    List<HaloMCC.Controllers.HomeController.XboxAchievements> halo3 = new List<HaloMCC.Controllers.HomeController.XboxAchievements>();
+    List<HaloMCC.Controllers.HomeController.XboxAchievements> halo4 = new List<HaloMCC.Controllers.HomeController.XboxAchievements>();
+    List<HaloMCC.Controllers.HomeController.XboxAchievements> universal = new List<HaloMCC.Controllers.HomeController.XboxAchievements>();
+    foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in Model)
+    {
+        switch (cheevo.game)
+        {
+            case "1":
+                halo1.Add(cheevo);
+                break;
+            case "2":
+                halo2.Add(cheevo);
+                break;
+            case "3":
+                halo3.Add(cheevo);
+                break;
+            case "4":
+                halo4.Add(cheevo);
+                break;
+            case "5":
+                universal.Add(cheevo);
+                break;
+        }
+    }
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand" style="color:cornflowerblue;">@Html.Raw(ViewBag.HtmlStr)</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#HaloCE">Halo: CE</a></li>
+                <li><a href="#Halo2">Halo 2</a></li>
+                <li><a href="#Halo2MP">Halo 2A: MP</a></li>
+                <li><a href="#Halo3">Halo 3</a></li>
+                <li><a href="#Halo4">Halo 4</a></li>
+                <li><a href="#Universal">Universal</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<strong>
+<br /><span style="color:green">Gamerscore: @Html.Raw(ViewBag.achievementScore)</span>
+<br /><span style="color:green">Achievement Percentage: @Html.Raw(ViewBag.achievementPercent)</span>
+<br /><span style="color:green">Gamerscore Percentage: @Html.Raw(ViewBag.gamerscorePercent)</span>
+</strong>
+
+    <h1><a name="HaloCE">Halo: CE</a></h1>
+
+    <h3>Campaign Levels</h3>
+
+    <table class="table table-striped table-bordered table-condensed table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo1)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Levels"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Level Specific</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo1)
+        {
+            if (@cheevo.cateogry.Equals("Level Specific"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Campaign Terminals</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo1)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Terminals"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Skulls</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo1)
+        {
+            if (cheevo.cateogry.Equals("Skulls"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Par Time</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo1)
+        {
+            if (cheevo.cateogry.Equals("Par Time"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Par Score</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo1)
+        {
+            if (cheevo.game.Equals("1") & cheevo.cateogry.Equals("Par Score"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Campaign Completion</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo1)
+        {
+            if (cheevo.game.Equals("1") & cheevo.cateogry.Equals("Campaign Completion"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Misc</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo1)
+        {
+            if (cheevo.game.Equals("1") & cheevo.cateogry.Equals("Misc"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h1><a name="Halo2">Halo 2</a></h1>
+
+    <h3>Campaign Levels</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Levels"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Level Specific</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Level Specific"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Campaign Terminals</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Terminals"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Skulls</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Skulls"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Toys</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Toys"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Par Time</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Par Time"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Par Score</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Par Score"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Campaign Completion</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Completion"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Classic Multiplayer Maps</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Classic Multiplayer Maps"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3><a name="Halo2MP">Anniversary Multiplayer</a></h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Anniversary Multiplayer"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Anniversary BLAST Soda</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Anniversary BLAST Soda"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Misc</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo2)
+        {
+            if (@cheevo.cateogry.Equals("Misc"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h1><a name="Halo3">Halo 3</a></h1>
+
+    <h3>Campaign Levels</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo3)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Levels"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Level Specific</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo3)
+        {
+            if (@cheevo.cateogry.Equals("Level Specific"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Campaign Terminals</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo3)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Terminals"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Skulls</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo3)
+        {
+            if (@cheevo.cateogry.Equals("Skulls"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Par Time</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo3)
+        {
+            if (@cheevo.cateogry.Equals("Par Time"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Par Score</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo3)
+        {
+            if (@cheevo.cateogry.Equals("Par Score"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Campaign Completion</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo3)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Completion"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Forge</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo3)
+        {
+            if (@cheevo.cateogry.Equals("Forge"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Misc</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo3)
+        {
+            if (@cheevo.cateogry.Equals("Misc"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h1><a name="Halo4">Halo 4</a></h1>
+
+    <h3>Campaign Levels</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo4)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Levels"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Level Specific</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo4)
+        {
+            if (@cheevo.cateogry.Equals("Level Specific"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Campaign Terminals</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo4)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Terminals"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Par Time</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo4)
+        {
+            if (@cheevo.cateogry.Equals("Par Time"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Par Score</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th class="levelmap">Level/Map</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo4)
+        {
+            if (@cheevo.cateogry.Equals("Par Score"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td class="levelmap">@cheevo.levelmap</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Campaign Completion</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo4)
+        {
+            if (@cheevo.cateogry.Equals("Campaign Completion"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Misc</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in halo4)
+        {
+            if (@cheevo.cateogry.Equals("Misc"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h1><a name="Universal">Universal</a></h1>
+
+    <h3>Kill Count</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in universal)
+        {
+            if (@cheevo.cateogry.Equals("Kill Count"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Medals</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in universal)
+        {
+            if (@cheevo.cateogry.Equals("Medals"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Completion</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in universal)
+        {
+            if (@cheevo.cateogry.Equals("Completion"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Sessions</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+            <th class="reward">Reward</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in universal)
+        {
+            if (@cheevo.cateogry.Equals("Sessions"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                    <td class="reward">@cheevo.reward</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <h3>Misc</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unlocked</th>
+        </tr>
+        @foreach (HaloMCC.Controllers.HomeController.XboxAchievements cheevo in universal)
+        {
+            if (@cheevo.cateogry.Equals("Misc"))
+            {
+                <tr>
+                    <td>@cheevo.name</td>
+                    <td>@cheevo.description</td>
+                    <td>@Html.Raw(cheevo.progressState)</td>
+                </tr>
+            }
+        }
+    </table>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($(window).width() <= 768) {
+                $(".levelmap").hide();
+                $(".reward").hide();
+            }
+            if ($(window).width() > 768 && $(window).width() <= 992) {
+                $(".reward").hide();
+            }
+        })
+        $(window).resize(function () {
+            if ($(window).width() <= 768) {
+                $(".levelmap").hide();
+                $(".reward").hide();
+            }
+            if ($(window).width() > 768 && $(window).width() <= 992) {
+                $(".levelmap").show();
+                $(".reward").hide();
+            }
+            if ($(window).width() > 992) {
+                $(".levelmap").show();
+                $(".reward").show();
+            }
+        })
+    </script>
